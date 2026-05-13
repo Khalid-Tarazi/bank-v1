@@ -1,4 +1,4 @@
-# bank-v1
+# Bank-v1
 
 # Bank-v1: Procedural Banking Management Core
 
