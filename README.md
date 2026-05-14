@@ -10,3 +10,8 @@ A comprehensive, command-line core banking system built in C++ using procedural 
 * Implemented fundamental CRUD operations (Create, Read, Update, Delete) for client profiles.
 * Engineered custom text-file parsing algorithms to load and save client records safely.
 * Designed a structured console user interface with input validation routines.
+
+### 🔹 v1.2 — Transaction Ledger Extensions
+* Extended the system to process financial mutations (Deposits and Withdrawals).
+* Added automated total balance summaries and real-time ledger updates.
+* Implemented validation checks preventing account overdrafts.
