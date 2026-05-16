@@ -396,7 +396,11 @@ void showEndScreen() {
 enum enMainMenuOptions {
     eListClients = 1, eAddNewClient = 2,
     eDeleteClient = 3, eUpdateClient = 4,
-    eFindClient = 5, eExit = 6
+    eFindClient = 5, eTransactions = 6,eExit = 7
+};
+
+enum enTransactionsMenuOptions {
+    eDeposit = 1, eWithDraw = 2, eTotalBalances = 3, eMainMenu = 4
 };
 
 void goBackToMainMenu() {
@@ -406,23 +410,54 @@ void goBackToMainMenu() {
 }
 
 short readMainMenuOption() {
-    cout << "Choose what do you want to do? [1 to 6]? ";
+    cout << "Choose what do you want to do? [1 to 7]? ";
     short Choice = 0;
     cin >> Choice;
 
     return Choice;
 }
 
-void performMainMenueOption(enMainMenuOptions MainMenueOption) {
-    switch (MainMenueOption)
-    {
+short readTransactionsMenuOption() {
+    cout << "Choose what do you want to do? [1 to 4]? ";
+    short Choice = 0;
+    cin >> Choice;
+
+    return Choice;
+}
+
+void performTransactionMenuOptions(enTransactionsMenuOptions transactionsMenuOption) {
+    cout << "\n-----------------------------------\n";
+    cout << "\tTransactions Menu Screen";
+    cout << "\n-----------------------------------\n";
+
+    switch (transactionsMenuOption) {
+
+    case enTransactionsMenuOptions::eDeposit:
+        system("cls");
+
+    case enTransactionsMenuOptions::eWithDraw:
+        system("cls");
+
+    case enTransactionsMenuOptions::eTotalBalances:
+        system("cls");
+
+    case enTransactionsMenuOptions::eMainMenu:
+        system("cls");
+        goBackToMainMenu();
+        break;
+    }
+}
+
+void performMainMenueOption(enMainMenuOptions MainMenuOption) {
+    switch (MainMenuOption) {
+    
     case enMainMenuOptions::eListClients:
-    {
+    
         system("cls");
         showAllClientsScreen();
         goBackToMainMenu();
         break;
-    }
+    
     case enMainMenuOptions::eAddNewClient:
         system("cls");
         showAddNewClientsScreen();
@@ -446,6 +481,12 @@ void performMainMenueOption(enMainMenuOptions MainMenueOption) {
         showFindClientScreen();
         goBackToMainMenu();
         break;
+    
+    case enMainMenuOptions::eTransactions:
+        system("cls");
+        performTransactionMenuOptions((enTransactionsMenuOptions) readTransactionsMenuOption());
+        goBackToTransactionScreen();
+        break;
 
     case enMainMenuOptions::eExit:
         system("cls");
@@ -464,7 +505,8 @@ void showMainMenu() {
     cout << "\t[3] Delete Client.\n";
     cout << "\t[4] Update Client Info.\n";
     cout << "\t[5] Find Client.\n";
-    cout << "\t[6] Exit.\n";
+    cout << "\t[6] Transactions.\n";
+    cout << "\t[7] Exit.\n";
     cout << "===========================================\n";
     performMainMenueOption((enMainMenuOptions)readMainMenuOption());
 }
